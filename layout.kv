@@ -1,0 +1,63 @@
+<MyLayout>:
+    orientation: 'vertical'
+    size: root.width, root.height
+    padding: 10
+    spacing: 10
+
+    GridLayout:
+        rows: 3
+        padding: 16
+
+        RelativeLayout:
+            size_hint: 1, 0.8
+            padding: 8
+            spacing: 10
+            AndroidCamera:
+                index: 0
+                id: a_cam
+                allow_stretch: True
+                play: True
+                canvas.before:
+
+                    PushMatrix
+                    Rotate:
+                        angle: 0
+                        origin: self.center
+                    Scale:
+                        x: 1.1
+                        y: 1.1
+                        origin: self.center
+                canvas.after:
+                    PopMatrix
+                
+
+        GridLayout:
+            cols: 2
+            row_force_default: True
+            row_default_height: 40
+            id: my_grid
+            padding: 25
+            spacing: 50
+            
+            GridLayout:
+                rows: 5
+                spacing: 10
+                row_force_default: True
+                row_default_height: 40
+                id: left_grid
+            GridLayout:
+                rows: 5
+                spacing: 10
+                row_force_default: True
+                row_default_height: 40
+                id: right_grid
+        Button:
+            size_hint: 1, 0.2
+            rows: 1
+            row_force_default: True
+            row_default_height: 40
+            margin: 10
+            id: sentence
+            font_size: self.height * 0.8
+            text: ''
+            
